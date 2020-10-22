@@ -1,0 +1,299 @@
+@import 'PaletaColors';
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+@mixin centerOne () {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+@mixin centerTwo ($direccion, $content, $items) {
+    display: flex;
+    flex-direction: $direccion;
+    justify-content: $content;
+    align-items: $items;    
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    box-sizing: border-box;
+}
+.contenedor{
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr 4fr 2fr 2fr;
+    grid-template-areas: 
+    "header header header"
+    "section section section"
+    "article article article"
+    "social social social"
+    "formulario formulario formulario"
+    ;
+    header{
+        grid-area: header;
+        background-color: $cuartoColor ;
+        opacity: 90%;
+        color: $segundoColor;
+        .hamburguesa{                                 
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+            a{
+                text-decoration: none;
+                color: $segundoColor ;
+            }            
+        }
+        #menu{
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            padding-left: 0;
+            z-index: 0;
+            color: $segundoColor;
+            transition: width 0.5s ; opacity: 0.5s;
+            visibility: hidden;           
+            a{
+                position: relative;
+            }
+            ul{
+                li{
+                    list-style: none;
+                }
+            }            
+        }
+        #menu:target{
+            visibility: visible;
+            display: block;
+            z-index: 5;
+            color: $segundoColor;
+            width: 100px;
+        }
+        #menu:target a{
+            color: $segundoColor;
+        }
+        #menu:target i{
+            visibility: hidden;
+        }
+        menu{
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            padding: 0;
+            ul{
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                font-family: 'Muli', sans-serif;
+                opacity: 90%;
+                color: $tercerColor;
+                
+                li{
+                    background-color: $segundoColor ;
+                    list-style: none;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 5px;
+                    font-family: 'Muli', sans-serif;
+                    border-bottom: 1px solid  $tercerColor ;
+                    list-style: none;                
+                }
+                li:hover{
+                    background-color: $cuartoColor;
+                    color: $quintoColor
+                }                 
+            }
+        }
+        .othermenu{
+            //grid-area: menu;
+            background-color:$cuartoColor;
+            opacity: 90%;
+            position: inherit; 
+            @include centerOne();    
+                         
+            .menuPrincipal{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                font-family: 'Muli', sans-serif;
+                a{
+                    text-decoration: none;
+                    color: $tercerColor;
+                }                    
+                li{
+                    list-style: none;
+                    margin: 10px;
+                }  
+                li:hover .menuInterior {
+                    visibility: visible;                    
+                }
+                .menuInterior{
+                    visibility: hidden;
+                    padding: 0;
+                    position: absolute;
+                    background-color: $segundoColor ;
+                    opacity: 90%;
+                    border: 1px solid  $tercerColor ;
+                    color: $tercerColor;                
+                    width: 150px;                
+                    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+                    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+                    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+                    li{
+                        padding: 5px;
+                        font-family: 'Muli', sans-serif;
+                        border-bottom: 1px solid  $tercerColor ;
+                        list-style: none;
+                        margin: 0;                     
+                    } 
+                    li:hover{
+                        background-color: $cuartoColor;
+                        color: $quintoColor;
+                    }                  
+                }
+            }
+        }
+    }
+    section{
+        grid-area: section;
+        background-image: url(../Imagenes/foto-garage-ag-rqduGEf08BQ-unsplash.jpg);
+        background-repeat: no-repeat;
+        background-size: cover ;
+        background-position: center;
+        height: 600px;
+        .trainin{
+            font-size: 5em;
+            font-family: 'Permanent Marker', cursive;
+            color: $quintoColor;
+            opacity: 70%;
+            position: relative;
+            top: 20%;
+            left: 35%;
+        }        
+    }
+    article{
+        grid-area: article;
+        @include centerTwo(column, space-around, );
+        .card{
+            width: 330px;
+            margin-top: 20px;
+            margin-bottom: 20px;  
+            box-shadow: 11px 11px 23px -3px rgba(0, 0, 0, 0.75);
+            a{
+                text-decoration: none;
+                color: $cuartoColor;      
+                .imgCard{
+                    width: 100%;
+                    height: 300px;
+                }
+                .container  {
+                      padding: 2px 16px;
+                      margin: 20px auto;      
+                    h1{
+                          font-family: 'Permanent Marker', cursive;
+                    }      
+                      p{
+                          font-family: 'Muli', sans-serif;
+                          margin-top: 20px;
+                    }
+                }
+            }            
+        }
+    }
+    .social{
+        grid-area: social;
+        background-color: $segundoColor ;
+        font-size: 40px;
+        height: 80px;
+        @include centerOne();
+        :hover{
+            opacity: 80%;
+        }       
+        a{
+            text-decoration: none;
+            color:$cuartoColor;        
+            i{
+                margin-right: 30px;
+            }
+        }
+    }
+    form{
+        grid-area: formulario;
+        background-color: $cuartoColor;
+        @include centerTwo(colum, center, );
+        font-family: 'Muli', sans-serif;
+        button{  
+            background: $segundoColor;
+            color: $cuartoColor;
+            padding: 10px 16px;
+            font-size: 18px;
+            border: 1px solid $tercerColor;
+            border-radius: 6px ;
+            box-shadow: 11px 11px 23px -3px rgba(0, 0, 0, 0.75);            
+        }
+        label{            
+            margin-top: 20px;
+            margin-right: 5em;
+            margin-bottom: 10px;
+            color: $segundoColor;
+        }
+        ul{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            li{
+                list-style: none;
+                margin: 1em;
+                margin-top: 3px;
+                input{
+                    width: 100%;
+                    height: 46px;
+                    padding: 10px 16px;
+                    font-size: 18px;
+                    border-radius: 6px;
+                    box-shadow: 11px 11px 23px -3px rgba(0, 0, 0, 0.75);                                    
+                }
+                textarea{                    
+                    height: 46px;
+                    padding: 10px 16px;
+                    font-size: 18px;                                                  
+                }                
+            }
+        }
+    }
+}
+
+
+
+//Esto esta todo mal! Perdon, pero hace3 dias que no duermo practicamente,
+//tuve varios problemas para hacer el trabajo y me quedo esto mal hecho!
+@media (max-width: 400px){
+    .contenedor{
+        height: 100vh;
+        display: grid;
+        grid-template-areas: 
+        "header"
+        "section"
+        "social"
+        "formulario";
+    }
+
+    article{
+        display: none;
+    }
+         
+    
+
+}
+
+@media (min-width:401px){
+    
+}

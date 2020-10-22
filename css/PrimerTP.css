@@ -1,0 +1,382 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.contenedor {
+  height: 100vh;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 2fr 1fr 4fr 2fr 2fr;
+      grid-template-rows: 2fr 1fr 4fr 2fr 2fr;
+      grid-template-areas: "header header header" "section section section" "article article article" "social social social" "formulario formulario formulario";
+}
+
+.contenedor header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: header;
+  background-color: #333;
+  opacity: 90%;
+  color: #E5FF3E;
+}
+
+.contenedor header .hamburguesa {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+}
+
+.contenedor header .hamburguesa a {
+  text-decoration: none;
+  color: #E5FF3E;
+}
+
+.contenedor header #menu {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  padding-left: 0;
+  z-index: 0;
+  color: #E5FF3E;
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+  opacity: 0.5s;
+  visibility: hidden;
+}
+
+.contenedor header #menu a {
+  position: relative;
+}
+
+.contenedor header #menu ul li {
+  list-style: none;
+}
+
+.contenedor header #menu:target {
+  visibility: visible;
+  display: block;
+  z-index: 5;
+  color: #E5FF3E;
+  width: 100px;
+}
+
+.contenedor header #menu:target a {
+  color: #E5FF3E;
+}
+
+.contenedor header #menu:target i {
+  visibility: hidden;
+}
+
+.contenedor header menu {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  padding: 0;
+}
+
+.contenedor header menu ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Muli', sans-serif;
+  opacity: 90%;
+  color: black;
+}
+
+.contenedor header menu ul li {
+  background-color: #E5FF3E;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+  font-family: 'Muli', sans-serif;
+  border-bottom: 1px solid black;
+  list-style: none;
+}
+
+.contenedor header menu ul li:hover {
+  background-color: #333;
+  color: whitesmoke;
+}
+
+.contenedor header .othermenu {
+  background-color: #333;
+  opacity: 90%;
+  position: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contenedor header .othermenu .menuPrincipal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: 'Muli', sans-serif;
+}
+
+.contenedor header .othermenu .menuPrincipal a {
+  text-decoration: none;
+  color: black;
+}
+
+.contenedor header .othermenu .menuPrincipal li {
+  list-style: none;
+  margin: 10px;
+}
+
+.contenedor header .othermenu .menuPrincipal li:hover .menuInterior {
+  visibility: visible;
+}
+
+.contenedor header .othermenu .menuPrincipal .menuInterior {
+  visibility: hidden;
+  padding: 0;
+  position: absolute;
+  background-color: #E5FF3E;
+  opacity: 90%;
+  border: 1px solid black;
+  color: black;
+  width: 150px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.contenedor header .othermenu .menuPrincipal .menuInterior li {
+  padding: 5px;
+  font-family: 'Muli', sans-serif;
+  border-bottom: 1px solid black;
+  list-style: none;
+  margin: 0;
+}
+
+.contenedor header .othermenu .menuPrincipal .menuInterior li:hover {
+  background-color: #333;
+  color: whitesmoke;
+}
+
+.contenedor section {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: section;
+  background-image: url(../Imagenes/foto-garage-ag-rqduGEf08BQ-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+}
+
+.contenedor section .trainin {
+  font-size: 5em;
+  font-family: 'Permanent Marker', cursive;
+  color: whitesmoke;
+  opacity: 70%;
+  position: relative;
+  top: 20%;
+  left: 35%;
+}
+
+.contenedor article {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: article;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.contenedor article .card {
+  width: 330px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 11px 11px 23px -3px rgba(0, 0, 0, 0.75);
+          box-shadow: 11px 11px 23px -3px rgba(0, 0, 0, 0.75);
+}
+
+.contenedor article .card a {
+  text-decoration: none;
+  color: #333;
+}
+
+.contenedor article .card a .imgCard {
+  width: 100%;
+  height: 300px;
+}
+
+.contenedor article .card a .container {
+  padding: 2px 16px;
+  margin: 20px auto;
+}
+
+.contenedor article .card a .container h1 {
+  font-family: 'Permanent Marker', cursive;
+}
+
+.contenedor article .card a .container p {
+  font-family: 'Muli', sans-serif;
+}
+
+.contenedor .social {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: social;
+  background-color: #E5FF3E;
+  font-size: 40px;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contenedor .social :hover {
+  opacity: 80%;
+}
+
+.contenedor .social a {
+  text-decoration: none;
+  color: #333;
+}
+
+.contenedor .social a i {
+  margin-right: 30px;
+}
+
+.contenedor form {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: formulario;
+  background-color: #333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: 'Muli', sans-serif;
+}
+
+.contenedor form button {
+  background: #E5FF3E;
+  color: #333;
+  padding: 10px 16px;
+  font-size: 18px;
+  border: 1px solid black;
+  border-radius: 6px;
+  -webkit-box-shadow: 11px 11px 23px -3px rgba(0, 0, 0, 0.75);
+          box-shadow: 11px 11px 23px -3px rgba(0, 0, 0, 0.75);
+}
+
+.contenedor form label {
+  margin-top: 20px;
+  margin-right: 5em;
+  margin-bottom: 10px;
+  color: #E5FF3E;
+}
+
+.contenedor form ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contenedor form ul li {
+  list-style: none;
+  margin: 1em;
+  margin-top: 3px;
+}
+
+.contenedor form ul li input {
+  width: 100%;
+  height: 46px;
+  padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 6px;
+  -webkit-box-shadow: 11px 11px 23px -3px rgba(0, 0, 0, 0.75);
+          box-shadow: 11px 11px 23px -3px rgba(0, 0, 0, 0.75);
+}
+
+.contenedor form ul li textarea {
+  height: 46px;
+  padding: 10px 16px;
+  font-size: 18px;
+}
+/*# sourceMappingURL=PrimerTP.css.map */
